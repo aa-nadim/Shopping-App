@@ -91,6 +91,41 @@
 
                //console.log("iPhonePrice",iPhonePriceNumber);
          })
+         // -_1 button event handler
+         const iPhoneMinusBtn = document.getElementById("iPhoneMinus");
+         iPhoneMinusBtn.addEventListener("click", function(){
+               const iPhoneAmount = document.getElementById("iPhoneAmount").value;
+               const iPhoneAmountNumber = parseFloat(iPhoneAmount);
+               document.getElementById("iPhoneAmount").value = iPhoneAmountNumber - 1;
+
+               const iPhonePrice = document.getElementById("iPhonePrice").innerText;
+               const iPhonePriceNumber = parseFloat(iPhonePrice);
+               document.getElementById("iPhonePrice").innerText = iPhonePriceNumber - 1219;
+         })
+
+          // +_2 button event handler
+          const iPhoneCasePlusBtn = document.getElementById("iPhoneCasePlus");
+         iPhoneCasePlusBtn.addEventListener("click", function(){
+               const iPhoneCaseAmount = document.getElementById("iPhoneCaseAmount").value;
+               const iPhoneCaseAmountNumber = parseFloat(iPhoneCaseAmount);
+               document.getElementById("iPhoneCaseAmount").value = iPhoneCaseAmountNumber + 1;
+
+               const iPhoneCasePrice = document.getElementById("iPhoneCasePrice").innerText;
+               const iPhoneCasePriceNumber = parseFloat(iPhoneCasePrice);
+               document.getElementById("iPhoneCasePrice").innerText = iPhoneCasePriceNumber + 59;
+         })
+         // -_2 button event handler
+         const iPhoneCaseMinusBtn = document.getElementById("iPhoneCaseMinus");
+         iPhoneCaseMinusBtn.addEventListener("click", function(){
+               const iPhoneCaseAmount = document.getElementById("iPhoneCaseAmount").value;
+               const iPhoneCaseAmountNumber = parseFloat(iPhoneCaseAmount);
+               document.getElementById("iPhoneCaseAmount").value = iPhoneCaseAmountNumber - 1;
+
+               const iPhoneCasePrice = document.getElementById("iPhoneCasePrice").innerText;
+               const iPhoneCasePriceNumber = parseFloat(iPhoneCasePrice);
+               document.getElementById("iPhoneCasePrice").innerText = iPhoneCasePriceNumber - 59;
+         })
+         
    </script>
 </body>
 
