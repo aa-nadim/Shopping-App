@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
    <section>
       <div class="container">
          <div class="cart">
@@ -34,7 +33,6 @@
                      </div>
                   </div>
                </div>
-
                <div class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item mx-auto">
@@ -46,14 +44,12 @@
                            <button id="iPhoneCaseMinus" class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input id="iPhoneCaseAmount" type="text" class="form-control text-center" value="1">
                            <button id="iPhoneCasePlus" class="btn btn-default"><i class="fas fa-plus"></i></button>
-
                         </div>
                         <h5>$ <span id="iPhoneCasePrice">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
-
                <div class="cart-item">
                   <div class="row">
 
@@ -80,73 +76,60 @@
    <script>
          let iPhoneNumber = 1;
          let iPhoneCaseNumber = 1;
+         let iPhonePrice = 1219;
+         let iPhoneCasePrice = 59;
          // +_1 button event handler
          const iPhonePlusBtn = document.getElementById("iPhonePlus");
          iPhonePlusBtn.addEventListener("click", function(){
-               const iPhoneAmount = document.getElementById("iPhoneAmount").value;
-               const iPhoneAmountNumber = parseFloat(iPhoneAmount);
-               iPhoneNumber = iPhoneAmountNumber + 1;
-               document.getElementById("iPhoneAmount").value = iPhoneNumber;
-
-               const iPhonePrice = document.getElementById("iPhonePrice").innerText;
-               const iPhonePriceNumber = parseFloat(iPhonePrice);
-               document.getElementById("iPhonePrice").innerText = iPhonePriceNumber + 1219;
-
-               //console.log("iPhonePrice",iPhonePriceNumber);
+               Amount("iPhoneAmount", 1);
+               Price("iPhonePrice",1,1219);
          })
          // -_1 button event handler
          const iPhoneMinusBtn = document.getElementById("iPhoneMinus");
          iPhoneMinusBtn.addEventListener("click", function(){
-               const iPhoneAmount = document.getElementById("iPhoneAmount").value;
-               const iPhoneAmountNumber = parseFloat(iPhoneAmount);
-               iPhoneNumber = iPhoneAmountNumber - 1;
-               document.getElementById("iPhoneAmount").value = iPhoneNumber;
-
-               const iPhonePrice = document.getElementById("iPhonePrice").innerText;
-               const iPhonePriceNumber = parseFloat(iPhonePrice);
-               document.getElementById("iPhonePrice").innerText = iPhonePriceNumber - 1219;
+               Amount("iPhoneAmount", -1);
+               Price("iPhonePrice",-1,1219);
          })
-
           // +_2 button event handler
-          const iPhoneCasePlusBtn = document.getElementById("iPhoneCasePlus");
+         const iPhoneCasePlusBtn = document.getElementById("iPhoneCasePlus");
          iPhoneCasePlusBtn.addEventListener("click", function(){
-               const iPhoneCaseAmount = document.getElementById("iPhoneCaseAmount").value;
-               const iPhoneCaseAmountNumber = parseFloat(iPhoneCaseAmount);
-               iPhoneCaseNumber = iPhoneCaseAmountNumber + 1;
-               document.getElementById("iPhoneCaseAmount").value = iPhoneCaseNumber;
-
-               const iPhoneCasePrice = document.getElementById("iPhoneCasePrice").innerText;
-               const iPhoneCasePriceNumber = parseFloat(iPhoneCasePrice);
-               document.getElementById("iPhoneCasePrice").innerText = iPhoneCasePriceNumber + 59;
+               Amount("iPhoneCaseAmount",1);
+               Price("iPhoneCasePrice",1,59);
          })
          // -_2 button event handler
          const iPhoneCaseMinusBtn = document.getElementById("iPhoneCaseMinus");
          iPhoneCaseMinusBtn.addEventListener("click", function(){
-               const iPhoneCaseAmount = document.getElementById("iPhoneCaseAmount").value;
-               const iPhoneCaseAmountNumber = parseFloat(iPhoneCaseAmount);
-               iPhoneCaseNumber = iPhoneCaseAmountNumber - 1;
-               document.getElementById("iPhoneCaseAmount").value = iPhoneCaseNumber;
-
-               const iPhoneCasePrice = document.getElementById("iPhoneCasePrice").innerText;
-               const iPhoneCasePriceNumber = parseFloat(iPhoneCasePrice);
-               document.getElementById("iPhoneCasePrice").innerText = iPhoneCasePriceNumber - 59;
+            Amount("iPhoneCaseAmount",-1);
+            Price("iPhoneCasePrice",-1,59);
          })
-
+         // Check Out button event handler
          const CheckOutBtn = document.getElementById("CheckOut");
          CheckOutBtn.addEventListener("click", function(){
-
                const subtotal = document.getElementById("subtotal").innerText;
                const subtotalNumber = parseFloat(subtotal);
-               document.getElementById("subtotal").innerText = iPhoneNumber*1219 + iPhoneCaseNumber*59;
-
+               document.getElementById("subtotal").innerText = iPhonePrice + iPhoneCasePrice;
 
                const total = document.getElementById("total").innerText;
                const totalNumber = parseFloat(total);
-               document.getElementById("total").innerText = iPhoneNumber*1219 + iPhoneCaseNumber*59;
-               
-               //console.log("iPhoneNumber", iPhoneNumber);
+               document.getElementById("total").innerText = iPhonePrice + iPhoneCasePrice;
          })
-         
+         function Amount(id,num){
+            const amount = document.getElementById(id).value;
+            const amountNumber = parseFloat(amount);
+            document.getElementById(id).value = amountNumber + num*1;
+        }
+         function Price(id,num,eachPrich){
+            const price = document.getElementById(id).innerText;
+            const priceNumber = parseFloat(price);
+            if(eachPrich == 1219){
+               iPhonePrice = priceNumber + num*1219;
+               document.getElementById(id).innerText = iPhonePrice;
+            }
+            else{
+               iPhoneCasePrice = priceNumber + num*59;
+               document.getElementById(id).innerText = iPhoneCasePrice;
+            }
+        }
    </script>
 </body>
 
